@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="content-section">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" name = "title" class = "form-control" value="Reply on : {{msg.Msg_title}}">
+            </div>
+            <div class="form-group">
+                <select name="Reciver" class="form-control">
+                    <option value="{{teacher.TeacherID}}">{{teacher.TeacherID}}</option>
+                </select>
+            </div>
+            <div class = "form-group">
+                <label for="">Message</label>
+                <textarea name="msg" cols="30" rows="10" class = "form-control"></textarea>
+            </div>
+            <div class = "form-group">
+                <input type="submit" class="form-control btn btn-outline-dark" value="Send Message">
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock content %}

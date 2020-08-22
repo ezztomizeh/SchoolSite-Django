@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">StudentID</th>
+        <th scope="col">StudentName</th>
+        <th scope="col">StudentGrade</th>
+        <th scope="col">StudentTotal</th>
+        <th scope="col">StudentRusalt</th>
+      </tr>
+    </thead>
+    {% for student in students%}
+      <tbody>
+        <tr>
+          <th scope="row">{{student.StudentID}}</th>
+          <td><a href="{% url 'StudentPage' student.StudentID%}">{{student.StudentName}}</a></td>
+          <td>{{student.StudentGrade}}</td>
+          <td>{{student.StudentTotal}}</td>
+          <td>{{student.StudentRusalt}}</td>
+        </tr>
+      </tbody>
+    {%endfor%}
+  </table>
+{% endblock content %}

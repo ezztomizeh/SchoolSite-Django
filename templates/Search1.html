@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset class = "form-group">
+        <div class="form-group">
+            <label>StudentID</label>
+            <input type="text" name="StudentID" class = "form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="form-control btn btn-outline-dark" value="Search">
+        </div>
+    </fieldset>
+</form>
+{% endblock content %}

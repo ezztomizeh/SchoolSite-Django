@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for msg in Msgs%}
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">From {{ msg.Msg_sender }}</a>
+                <small class="text-muted">In {{msg.Msg_Date}}</small>
+            </div>
+            <h2><a class="article-title" href="">{{ msg.Msg_title }}</a></h2>
+            <p class="article-content">{{ msg.Msg_content }}</p>
+            <center><a href="{% url 'reply' msg.id teacher.TeacherID %}" class = "btn btn-outline-dark">Replay</a></center>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

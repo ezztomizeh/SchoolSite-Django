@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class = 'form-group'>
+        <div class="form-group">
+            <label>Student ID </label>
+            <select name="StudentID" class = "form-control">
+                <option value="{{subject.StudentID}}">{{subject.StudentID}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Subject</label>
+            <input type="text" name='SubjectName' value="{{subject.SubjectName}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Top Resalt</label>
+            <input type="text" name='Top' value="{{subject.SubjectTop}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Lowest Resalt</label>
+            <input type="text" name='low' value="{{subject.SubjectLow}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>1st Exam</label>
+            <input type="text" name='1st' value="{{subject.FirstExam}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>2sec Exam</label>
+            <input type="text" name='2sec' value="{{subject.SecExam}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>3th Exam</label>
+            <input type="text" name='3th' value="{{subject.ThExam}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Final Exam</label>
+            <input type="text" name='Final' value="{{subject.FinalExam}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Other Marks</label>
+            <input type="text" name='marks' value="{{subject.OtherMarks}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add Subject" class="form-control btn btn-outline-dark">
+        </div>
+    </fieldset>
+</form>
+{% endblock content%}

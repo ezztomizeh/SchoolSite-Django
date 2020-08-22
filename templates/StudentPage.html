@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'UpdateStudent' student.StudentID %}"><h1>{{student.StudentName}}</h1></a>
+    <hr>
+    <center><h4>Student inforamtion</h4></center>
+    <h5>Grade: {{student.StudentGrade}}</h5>
+    <h5>Total: {{student.StudentTotal}}</h5>
+    <h5>Resalt: {{student.StudentRusalt}}</h5>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Subject</th>
+            <th scope="col">First Exam</th>
+            <th scope="col">Second Exam</th>
+            <th scope="col">Third Exam</th>
+            <th scope="col">Final Exam</th>
+            <th scope="col">Other Exam</th>
+            <th scope="col">Subject Rusalt</th>
+        </tr>
+        </thead>
+        {% for subject in subjects%}
+        <tbody>
+            <tr>
+            <th scope="row">{{subject.SubjectName}}</th>
+            <td>{{subject.FirstExam}}</td>
+            <td>{{subject.SecExam}}</td>
+            <td>{{subject.ThExam}}</td>
+            <td>{{subject.FinalExam}}</td>
+            <td>{{subject.OtherMarks}}</td>
+            <td>{{subject.SubjectRusalt}}/{{subject.SubjectTop}}</td>
+            <td><a href="{% url 'Update' student.StudentID subject.SubjectID%}">Update</a></td>
+            </tr>
+        </tbody>
+        {%endfor%}
+    </table>
+    <center>
+        <a href = "{% url 'AddSubjects' %}" class = "btn btn-outline-dark">Add Subject</a>
+    </center>
+{% endblock content %}
